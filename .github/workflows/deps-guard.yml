@@ -1,0 +1,110 @@
+name: DepsGuard-AI
+
+# Scan dependencies for known CVEs on every Pull Request that touches the
+# Python dependency set, and allow manual runs from the Actions tab.
+on:
+  pull_request:
+    paths:
+      - "requirements.txt"
+      - "main.py"
+      - ".github/workflows/deps-guard.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  scan:
+    name: Scan dependencies & AI triage
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # DepsGuard-AI only uses the Python standard library, so there is
+      # nothing to install.
+
+      - name: Run DepsGuard-AI scan
+        id: scan
+        env:
+          # Optional: provide a key as a repo secret to enable AI triage.
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          python main.py requirements.txt \
+            --output depsguard-report.json \
+            --ai-output ai_output.txt \
+            --fail-on-vuln
+        continue-on-error: true
+
+      - name: Upload JSON report artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: depsguard-report
+          path: |
+            depsguard-report.json
+            ai_output.txt
+          if-no-files-found: ignore
+
+      - name: Post AI triage as PR comment
+        if: ${{ always() && github.event_name == 'pull_request' }}
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const path = 'ai_output.txt';
+
+            if (!fs.existsSync(path)) {
+              core.info('No ai_output.txt produced - skipping PR comment.');
+              return;
+            }
+
+            const verdict = fs.readFileSync(path, 'utf8').trim();
+            if (!verdict) {
+              core.info('ai_output.txt is empty (no OPENAI_API_KEY?) - skipping PR comment.');
+              return;
+            }
+
+            const marker = '<!-- depsguard-ai-triage -->';
+            const body = `${marker}\n## DepsGuard-AI Security Triage\n\n${verdict}`;
+
+            const { owner, repo } = context.repo;
+            const issue_number = context.issue.number;
+
+            // Update an existing DepsGuard comment if present, otherwise create one.
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner,
+              repo,
+              issue_number,
+            });
+            const existing = comments.find((c) => c.body && c.body.includes(marker));
+
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner,
+                repo,
+                comment_id: existing.id,
+                body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner,
+                repo,
+                issue_number,
+                body,
+              });
+            }
+
+      - name: Fail the job if vulnerabilities were found
+        if: ${{ steps.scan.outcome == 'failure' }}
+        run: |
+          echo "::error::DepsGuard-AI detected known vulnerabilities. See logs and the PR comment."
+          exit 1

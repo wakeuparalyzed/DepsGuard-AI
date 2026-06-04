@@ -1,0 +1,14 @@
+# DepsGuard-AI sample requirements file
+# -------------------------------------
+# Pinned dependencies (package==version) are scanned against the OSV.dev
+# database. The entries below intentionally include a KNOWN-VULNERABLE version
+# so you can see the scanner produce findings out of the box.
+
+# Known-vulnerable on purpose (CVE-2018-18074, etc.) - used for testing.
+requests==2.20.0
+
+# Another historically vulnerable pin to demonstrate multiple findings.
+urllib3==1.24.1
+
+# A safe, modern pin (typically reports no vulnerabilities).
+certifi==2024.2.2

@@ -1,0 +1,742 @@
+{
+  "tool": "DepsGuard-AI",
+  "ecosystem": "PyPI",
+  "summary": {
+    "packages_scanned": 3,
+    "vulnerable_packages": 3,
+    "total_vulnerabilities": 27,
+    "scan_errors": 0
+  },
+  "findings": [
+    {
+      "package": "requests",
+      "version": "2.20.0",
+      "vulnerability_count": 5,
+      "vulnerabilities": [
+        {
+          "id": "GHSA-9hjg-9r4m-mvj7",
+          "summary": "Requests vulnerable to .netrc credentials leak via malicious URLs",
+          "aliases": [
+            "CVE-2024-47081"
+          ],
+          "cves": [
+            "CVE-2024-47081"
+          ],
+          "severity": [
+            {
+              "type": "CVSS_V3",
+              "score": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:N/A:N"
+            }
+          ],
+          "references": [
+            "https://github.com/psf/requests/security/advisories/GHSA-9hjg-9r4m-mvj7",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-47081",
+            "https://github.com/psf/requests/pull/6965",
+            "https://github.com/psf/requests/commit/96ba401c1296ab1dda74a2365ef36d88f7d144ef",
+            "https://github.com/psf/requests",
+            "https://requests.readthedocs.io/en/latest/api/#requests.Session.trust_env",
+            "https://seclists.org/fulldisclosure/2025/Jun/2",
+            "http://seclists.org/fulldisclosure/2025/Jun/2",
+            "http://www.openwall.com/lists/oss-security/2025/06/03/11",
+            "http://www.openwall.com/lists/oss-security/2025/06/03/9",
+            "http://www.openwall.com/lists/oss-security/2025/06/04/1",
+            "http://www.openwall.com/lists/oss-security/2025/06/04/6"
+          ]
+        },
+        {
+          "id": "GHSA-9wx4-h78v-vm56",
+          "summary": "Requests `Session` object does not verify requests after making first request with verify=False",
+          "aliases": [
+            "CVE-2024-35195"
+          ],
+          "cves": [
+            "CVE-2024-35195"
+          ],
+          "severity": [
+            {
+              "type": "CVSS_V3",
+              "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:R/S:U/C:H/I:H/A:N"
+            }
+          ],
+          "references": [
+            "https://github.com/psf/requests/security/advisories/GHSA-9wx4-h78v-vm56",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-35195",
+            "https://github.com/psf/requests/pull/6655",
+            "https://github.com/psf/requests/commit/a58d7f2ffb4d00b46dca2d70a3932a0b37e22fac",
+            "https://github.com/psf/requests",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/IYLSNK5TL46Q6XPRVMHVWS63MVJQOK4Q",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/N7WP6EYDSUOCOJYHDK5NX43PYZ4SNHGZ"
+          ]
+        },
+        {
+          "id": "GHSA-gc5v-m9x4-r6x2",
+          "summary": "Requests has Insecure Temp File Reuse in its extract_zipped_paths() utility function",
+          "aliases": [
+            "CVE-2026-25645"
+          ],
+          "cves": [
+            "CVE-2026-25645"
+          ],
+          "severity": [
+            {
+              "type": "CVSS_V3",
+              "score": "CVSS:3.1/AV:L/AC:H/PR:L/UI:R/S:U/C:N/I:H/A:N"
+            }
+          ],
+          "references": [
+            "https://github.com/psf/requests/security/advisories/GHSA-gc5v-m9x4-r6x2",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-25645",
+            "https://github.com/psf/requests/commit/66d21cb07bd6255b1280291c4fafb71803cdb3b7",
+            "https://github.com/psf/requests",
+            "https://github.com/psf/requests/releases/tag/v2.33.0"
+          ]
+        },
+        {
+          "id": "GHSA-j8r2-6x86-q33q",
+          "summary": "Unintended leak of Proxy-Authorization header in requests",
+          "aliases": [
+            "CVE-2023-32681",
+            "PYSEC-2023-74"
+          ],
+          "cves": [
+            "CVE-2023-32681"
+          ],
+          "severity": [
+            {
+              "type": "CVSS_V3",
+              "score": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:C/C:H/I:N/A:N"
+            }
+          ],
+          "references": [
+            "https://github.com/psf/requests/security/advisories/GHSA-j8r2-6x86-q33q",
+            "https://nvd.nist.gov/vuln/detail/CVE-2023-32681",
+            "https://github.com/psf/requests/commit/74ea7cf7a6a27a4eeb2ae24e162bcc942a6706d5",
+            "https://github.com/psf/requests",
+            "https://github.com/psf/requests/releases/tag/v2.31.0",
+            "https://github.com/pypa/advisory-database/tree/main/vulns/requests/PYSEC-2023-74.yaml",
+            "https://lists.debian.org/debian-lts-announce/2023/06/msg00018.html",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/AW7HNFGYP44RT3DUDQXG2QT3OEV2PJ7Y",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/KOYASTZDGQG2BWLSNBPL3TQRL2G7QYNZ",
+            "https://security.gentoo.org/glsa/202309-08"
+          ]
+        },
+        {
+          "id": "PYSEC-2023-74",
+          "summary": "Requests is a HTTP library. Since Requests 2.3.0, Requests has been leaking Proxy-Authorization headers to destination servers when redirected to an HTTPS endpoint. This is a product of how we use `re",
+          "aliases": [
+            "CVE-2023-32681",
+            "GHSA-j8r2-6x86-q33q"
+          ],
+          "cves": [
+            "CVE-2023-32681"
+          ],
+          "severity": [],
+          "references": [
+            "https://github.com/psf/requests/security/advisories/GHSA-j8r2-6x86-q33q",
+            "https://github.com/psf/requests/releases/tag/v2.31.0",
+            "https://github.com/psf/requests/commit/74ea7cf7a6a27a4eeb2ae24e162bcc942a6706d5",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/AW7HNFGYP44RT3DUDQXG2QT3OEV2PJ7Y/"
+          ]
+        }
+      ]
+    },
+    {
+      "package": "urllib3",
+      "version": "1.24.1",
+      "vulnerability_count": 20,
+      "vulnerabilities": [
+        {
+          "id": "GHSA-2xpw-w6gg-jr37",
+          "summary": "urllib3 streaming API improperly handles highly compressed data",
+          "aliases": [
+            "CVE-2025-66471"
+          ],
+          "cves": [
+            "CVE-2025-66471"
+          ],
+          "severity": [
+            {
+              "type": "CVSS_V4",
+              "score": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:H"
+            }
+          ],
+          "references": [
+            "https://github.com/urllib3/urllib3/security/advisories/GHSA-2xpw-w6gg-jr37",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-66471",
+            "https://github.com/urllib3/urllib3/commit/c19571de34c47de3a766541b041637ba5f716ed7",
+            "https://github.com/urllib3/urllib3"
+          ]
+        },
+        {
+          "id": "GHSA-34jh-p97f-mpxf",
+          "summary": "urllib3's Proxy-Authorization request header isn't stripped during cross-origin redirects",
+          "aliases": [
+            "CVE-2024-37891"
+          ],
+          "cves": [
+            "CVE-2024-37891"
+          ],
+          "severity": [
+            {
+              "type": "CVSS_V3",
+              "score": "CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:U/C:H/I:N/A:N"
+            }
+          ],
+          "references": [
+            "https://github.com/urllib3/urllib3/security/advisories/GHSA-34jh-p97f-mpxf",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-37891",
+            "https://github.com/urllib3/urllib3/commit/40b6d1605814dd1db0a46e202d6e56f2e4c9a468",
+            "https://github.com/urllib3/urllib3/commit/accff72ecc2f6cf5a76d9570198a93ac7c90270e",
+            "https://github.com/urllib3/urllib3",
+            "https://lists.debian.org/debian-lts-announce/2024/12/msg00020.html",
+            "https://security.netapp.com/advisory/ntap-20240822-0003",
+            "https://www.vicarius.io/vsociety/posts/proxy-authorization-header-handling-vulnerability-in-urllib3-cve-2024-37891"
+          ]
+        },
+        {
+          "id": "GHSA-38jv-5279-wg99",
+          "summary": "Decompression-bomb safeguards bypassed when following HTTP redirects (streaming API)",
+          "aliases": [
+            "CVE-2026-21441"
+          ],
+          "cves": [
+            "CVE-2026-21441"
+          ],
+          "severity": [
+            {
+              "type": "CVSS_V3",
+              "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+            },
+            {
+              "type": "CVSS_V4",
+              "score": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:H"
+            }
+          ],
+          "references": [
+            "https://github.com/urllib3/urllib3/security/advisories/GHSA-38jv-5279-wg99",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-21441",
+            "https://github.com/urllib3/urllib3/commit/8864ac407bba8607950025e0979c4c69bc7abc7b",
+            "https://github.com/urllib3/urllib3",
+            "https://lists.debian.org/debian-lts-announce/2026/01/msg00017.html"
+          ]
+        },
+        {
+          "id": "GHSA-g4mx-q9vg-27p4",
+          "summary": "urllib3's request body not stripped after redirect from 303 status changes request method to GET",
+          "aliases": [
+            "CVE-2023-45803",
+            "PYSEC-2023-212"
+          ],
+          "cves": [
+            "CVE-2023-45803"
+          ],
+          "severity": [
+            {
+              "type": "CVSS_V3",
+              "score": "CVSS:3.1/AV:A/AC:H/PR:H/UI:N/S:U/C:H/I:N/A:N"
+            },
+            {
+              "type": "CVSS_V4",
+              "score": "CVSS:4.0/AV:A/AC:L/AT:P/PR:H/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N"
+            }
+          ],
+          "references": [
+            "https://github.com/urllib3/urllib3/security/advisories/GHSA-g4mx-q9vg-27p4",
+            "https://nvd.nist.gov/vuln/detail/CVE-2023-45803",
+            "https://github.com/urllib3/urllib3/commit/4e50fbc5db74e32cabd5ccc1ab81fc103adfe0b3",
+            "https://github.com/urllib3/urllib3/commit/4e98d57809dacab1cbe625fddeec1a290c478ea9",
+            "https://github.com/urllib3/urllib3/commit/b594c5ceaca38e1ac215f916538fb128e3526a36",
+            "https://github.com/pypa/advisory-database/tree/main/vulns/urllib3/PYSEC-2023-212.yaml",
+            "https://github.com/urllib3/urllib3",
+            "https://github.com/urllib3/urllib3/releases/tag/1.26.18",
+            "https://github.com/urllib3/urllib3/releases/tag/2.0.7",
+            "https://lists.debian.org/debian-lts-announce/2024/12/msg00020.html",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/4R2Y5XK3WALSR3FNAGN7JBYV2B343ZKB",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/5F5CUBAN5XMEBVBZPHFITBLMJV5FIJJ5",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/PPDPLM6UUMN55ESPQWJFLLIZY4ZKCNRX",
+            "https://www.rfc-editor.org/rfc/rfc9110.html#name-get"
+          ]
+        },
+        {
+          "id": "GHSA-gm62-xv2j-4w53",
+          "summary": "urllib3 allows an unbounded number of links in the decompression chain",
+          "aliases": [
+            "CVE-2025-66418"
+          ],
+          "cves": [
+            "CVE-2025-66418"
+          ],
+          "severity": [
+            {
+              "type": "CVSS_V4",
+              "score": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:H"
+            }
+          ],
+          "references": [
+            "https://github.com/urllib3/urllib3/security/advisories/GHSA-gm62-xv2j-4w53",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-66418",
+            "https://github.com/urllib3/urllib3/commit/24d7b67eac89f94e11003424bcf0d8f7b72222a8",
+            "https://github.com/urllib3/urllib3"
+          ]
+        },
+        {
+          "id": "GHSA-gwvm-45gx-3cf8",
+          "summary": "Authorization Header forwarded on redirect",
+          "aliases": [
+            "CVE-2018-25091",
+            "PYSEC-2023-207"
+          ],
+          "cves": [
+            "CVE-2018-25091"
+          ],
+          "severity": [
+            {
+              "type": "CVSS_V3",
+              "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+            },
+            {
+              "type": "CVSS_V4",
+              "score": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:P/VC:N/VI:N/VA:N/SC:L/SI:L/SA:N"
+            }
+          ],
+          "references": [
+            "https://nvd.nist.gov/vuln/detail/CVE-2018-25091",
+            "https://github.com/urllib3/urllib3/issues/1510",
+            "https://github.com/urllib3/urllib3/commit/adb358f8e06865406d1f05e581a16cbea2136fbc",
+            "https://github.com/pypa/advisory-database/tree/main/vulns/urllib3/PYSEC-2023-207.yaml",
+            "https://github.com/urllib3/urllib3",
+            "https://github.com/urllib3/urllib3/compare/1.24.1...1.24.2"
+          ]
+        },
+        {
+          "id": "GHSA-mh33-7rrq-662w",
+          "summary": "Improper Certificate Validation in urllib3",
+          "aliases": [
+            "CVE-2019-11324",
+            "PYSEC-2019-133"
+          ],
+          "cves": [
+            "CVE-2019-11324"
+          ],
+          "severity": [
+            {
+              "type": "CVSS_V3",
+              "score": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N"
+            },
+            {
+              "type": "CVSS_V4",
+              "score": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:H/VA:N/SC:N/SI:N/SA:N"
+            }
+          ],
+          "references": [
+            "https://nvd.nist.gov/vuln/detail/CVE-2019-11324",
+            "https://github.com/urllib3/urllib3/commit/1efadf43dc63317cd9eaa3e0fdb9e05ab07254b1",
+            "https://access.redhat.com/errata/RHSA-2019:3335",
+            "https://access.redhat.com/errata/RHSA-2019:3590",
+            "https://github.com/advisories/GHSA-mh33-7rrq-662w",
+            "https://github.com/pypa/advisory-database/tree/main/vulns/urllib3/PYSEC-2019-133.yaml",
+            "https://github.com/urllib3/urllib3",
+            "https://github.com/urllib3/urllib3/compare/a6ec68a...1efadf4",
+            "https://lists.debian.org/debian-lts-announce/2021/06/msg00015.html",
+            "https://lists.debian.org/debian-lts-announce/2023/10/msg00012.html",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/NKGPJLVLVYCL4L4B4G5TIOTVK4BKPG72",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/XOSA2NT4DUQDBEIWE6O7KKD24XND7TE2",
+            "https://pypi.org/project/urllib3/1.24.2",
+            "https://usn.ubuntu.com/3990-1",
+            "http://lists.opensuse.org/opensuse-security-announce/2019-09/msg00039.html",
+            "http://lists.opensuse.org/opensuse-security-announce/2019-09/msg00041.html",
+            "http://www.openwall.com/lists/oss-security/2019/04/19/1"
+          ]
+        },
+        {
+          "id": "GHSA-pq67-6m6q-mj2v",
+          "summary": "urllib3 redirects are not disabled when retries are disabled on PoolManager instantiation",
+          "aliases": [
+            "CVE-2025-50181"
+          ],
+          "cves": [
+            "CVE-2025-50181"
+          ],
+          "severity": [
+            {
+              "type": "CVSS_V3",
+              "score": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N"
+            }
+          ],
+          "references": [
+            "https://github.com/urllib3/urllib3/security/advisories/GHSA-pq67-6m6q-mj2v",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-50181",
+            "https://github.com/urllib3/urllib3/commit/f05b1329126d5be6de501f9d1e3e36738bc08857",
+            "https://github.com/urllib3/urllib3",
+            "https://github.com/urllib3/urllib3/releases/tag/2.5.0"
+          ]
+        },
+        {
+          "id": "GHSA-qccp-gfcp-xxvc",
+          "summary": "urllib3: Sensitive headers forwarded across origins in proxied low-level redirects",
+          "aliases": [
+            "CVE-2026-44431",
+            "PYSEC-2026-141"
+          ],
+          "cves": [
+            "CVE-2026-44431"
+          ],
+          "severity": [
+            {
+              "type": "CVSS_V3",
+              "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N"
+            },
+            {
+              "type": "CVSS_V4",
+              "score": "CVSS:4.0/AV:N/AC:H/AT:P/PR:N/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N"
+            }
+          ],
+          "references": [
+            "https://github.com/urllib3/urllib3/security/advisories/GHSA-qccp-gfcp-xxvc",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-44431",
+            "https://github.com/urllib3/urllib3"
+          ]
+        },
+        {
+          "id": "GHSA-r64q-w8jr-g9qp",
+          "summary": "Improper Neutralization of CRLF Sequences in urllib3 library for Python",
+          "aliases": [
+            "CVE-2019-11236",
+            "PYSEC-2019-132"
+          ],
+          "cves": [
+            "CVE-2019-11236"
+          ],
+          "severity": [
+            {
+              "type": "CVSS_V3",
+              "score": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+            },
+            {
+              "type": "CVSS_V4",
+              "score": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:P/VC:N/VI:N/VA:N/SC:L/SI:L/SA:N"
+            }
+          ],
+          "references": [
+            "https://nvd.nist.gov/vuln/detail/CVE-2019-11236",
+            "https://github.com/urllib3/urllib3/issues/1553",
+            "https://usn.ubuntu.com/3990-2",
+            "https://usn.ubuntu.com/3990-1",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/XOSA2NT4DUQDBEIWE6O7KKD24XND7TE2",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/TBI45HO533KYHNB5YRO43TBYKA3E3VRL",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/R62XGEYPUTXMRHGX5I37EBCGQ5COHGKR",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/NKGPJLVLVYCL4L4B4G5TIOTVK4BKPG72",
+            "https://lists.debian.org/debian-lts-announce/2023/10/msg00012.html",
+            "https://lists.debian.org/debian-lts-announce/2021/06/msg00015.html",
+            "https://lists.debian.org/debian-lts-announce/2019/06/msg00016.html",
+            "https://github.com/urllib3/urllib3",
+            "https://github.com/pypa/advisory-database/tree/main/vulns/urllib3/PYSEC-2019-132.yaml",
+            "https://github.com/advisories/GHSA-r64q-w8jr-g9qp",
+            "https://access.redhat.com/errata/RHSA-2019:3590",
+            "https://access.redhat.com/errata/RHSA-2019:3335",
+            "https://access.redhat.com/errata/RHSA-2019:2272",
+            "http://lists.opensuse.org/opensuse-security-announce/2019-09/msg00039.html",
+            "http://lists.opensuse.org/opensuse-security-announce/2019-09/msg00041.html"
+          ]
+        },
+        {
+          "id": "GHSA-v845-jxx5-vc9f",
+          "summary": "`Cookie` HTTP header isn't stripped on cross-origin redirects",
+          "aliases": [
+            "CVE-2023-43804",
+            "PYSEC-2023-192"
+          ],
+          "cves": [
+            "CVE-2023-43804"
+          ],
+          "severity": [
+            {
+              "type": "CVSS_V3",
+              "score": "CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:N"
+            },
+            {
+              "type": "CVSS_V4",
+              "score": "CVSS:4.0/AV:N/AC:L/AT:P/PR:H/UI:N/VC:H/VI:H/VA:N/SC:N/SI:N/SA:N"
+            }
+          ],
+          "references": [
+            "https://github.com/urllib3/urllib3/security/advisories/GHSA-v845-jxx5-vc9f",
+            "https://nvd.nist.gov/vuln/detail/CVE-2023-43804",
+            "https://github.com/urllib3/urllib3/commit/01220354d389cd05474713f8c982d05c9b17aafb",
+            "https://github.com/urllib3/urllib3/commit/644124ecd0b6e417c527191f866daa05a5a2056d",
+            "https://github.com/pypa/advisory-database/tree/main/vulns/urllib3/PYSEC-2023-192.yaml",
+            "https://github.com/urllib3/urllib3",
+            "https://lists.debian.org/debian-lts-announce/2023/10/msg00012.html",
+            "https://lists.debian.org/debian-lts-announce/2024/12/msg00020.html",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/5F5CUBAN5XMEBVBZPHFITBLMJV5FIJJ5",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/I3PR7C6RJ6JUBQKIJ644DMIJSUP36VDY",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/NDAGZXYJ7H2G3SB47M453VQVNAWKAEJJ",
+            "https://security.netapp.com/advisory/ntap-20241213-0007",
+            "https://www.vicarius.io/vsociety/posts/cve-2023-43804-urllib3-vulnerability-3"
+          ]
+        },
+        {
+          "id": "GHSA-wqvq-5m8c-6g24",
+          "summary": "CRLF injection in urllib3",
+          "aliases": [
+            "CVE-2020-26137",
+            "PYSEC-2020-148"
+          ],
+          "cves": [
+            "CVE-2020-26137"
+          ],
+          "severity": [
+            {
+              "type": "CVSS_V3",
+              "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N"
+            },
+            {
+              "type": "CVSS_V4",
+              "score": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:L/VA:N/SC:N/SI:N/SA:N"
+            }
+          ],
+          "references": [
+            "https://nvd.nist.gov/vuln/detail/CVE-2020-26137",
+            "https://github.com/urllib3/urllib3/pull/1800",
+            "https://github.com/urllib3/urllib3/commit/1dd69c5c5982fae7c87a620d487c2ebf7a6b436b",
+            "https://bugs.python.org/issue39603",
+            "https://github.com/pypa/advisory-database/tree/main/vulns/urllib3/PYSEC-2020-148.yaml",
+            "https://github.com/urllib3/urllib3",
+            "https://lists.debian.org/debian-lts-announce/2021/06/msg00015.html",
+            "https://lists.debian.org/debian-lts-announce/2023/10/msg00012.html",
+            "https://usn.ubuntu.com/4570-1",
+            "https://www.oracle.com/security-alerts/cpujul2022.html",
+            "https://www.oracle.com/security-alerts/cpuoct2021.html"
+          ]
+        },
+        {
+          "id": "PYSEC-2019-132",
+          "summary": "In the urllib3 library through 1.24.1 for Python, CRLF injection is possible if the attacker controls the request parameter.",
+          "aliases": [
+            "CVE-2019-11236",
+            "GHSA-r64q-w8jr-g9qp"
+          ],
+          "cves": [
+            "CVE-2019-11236"
+          ],
+          "severity": [],
+          "references": [
+            "https://github.com/urllib3/urllib3/issues/1553",
+            "https://usn.ubuntu.com/3990-1/",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/TBI45HO533KYHNB5YRO43TBYKA3E3VRL/",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/R62XGEYPUTXMRHGX5I37EBCGQ5COHGKR/",
+            "https://lists.debian.org/debian-lts-announce/2019/06/msg00016.html",
+            "https://usn.ubuntu.com/3990-2/",
+            "https://access.redhat.com/errata/RHSA-2019:2272",
+            "http://lists.opensuse.org/opensuse-security-announce/2019-09/msg00039.html",
+            "http://lists.opensuse.org/opensuse-security-announce/2019-09/msg00041.html",
+            "https://access.redhat.com/errata/RHSA-2019:3335",
+            "https://access.redhat.com/errata/RHSA-2019:3590",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/NKGPJLVLVYCL4L4B4G5TIOTVK4BKPG72/",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/XOSA2NT4DUQDBEIWE6O7KKD24XND7TE2/",
+            "https://github.com/advisories/GHSA-r64q-w8jr-g9qp"
+          ]
+        },
+        {
+          "id": "PYSEC-2019-133",
+          "summary": "The urllib3 library before 1.24.2 for Python mishandles certain cases where the desired set of CA certificates is different from the OS store of CA certificates, which results in SSL connections succe",
+          "aliases": [
+            "CVE-2019-11324",
+            "GHSA-mh33-7rrq-662w"
+          ],
+          "cves": [
+            "CVE-2019-11324"
+          ],
+          "severity": [],
+          "references": [
+            "https://github.com/urllib3/urllib3/compare/a6ec68a...1efadf4",
+            "http://www.openwall.com/lists/oss-security/2019/04/19/1",
+            "https://usn.ubuntu.com/3990-1/",
+            "http://lists.opensuse.org/opensuse-security-announce/2019-09/msg00039.html",
+            "http://lists.opensuse.org/opensuse-security-announce/2019-09/msg00041.html",
+            "https://access.redhat.com/errata/RHSA-2019:3335",
+            "https://access.redhat.com/errata/RHSA-2019:3590",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/NKGPJLVLVYCL4L4B4G5TIOTVK4BKPG72/",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/XOSA2NT4DUQDBEIWE6O7KKD24XND7TE2/",
+            "https://github.com/advisories/GHSA-mh33-7rrq-662w"
+          ]
+        },
+        {
+          "id": "PYSEC-2020-148",
+          "summary": "urllib3 before 1.25.9 allows CRLF injection if the attacker controls the HTTP request method, as demonstrated by inserting CR and LF control characters in the first argument of putrequest(). NOTE: thi",
+          "aliases": [
+            "CVE-2020-26137",
+            "GHSA-wqvq-5m8c-6g24"
+          ],
+          "cves": [
+            "CVE-2020-26137"
+          ],
+          "severity": [],
+          "references": [
+            "https://bugs.python.org/issue39603",
+            "https://github.com/urllib3/urllib3/commit/1dd69c5c5982fae7c87a620d487c2ebf7a6b436b",
+            "https://github.com/urllib3/urllib3/pull/1800",
+            "https://usn.ubuntu.com/4570-1/",
+            "https://github.com/advisories/GHSA-wqvq-5m8c-6g24"
+          ]
+        },
+        {
+          "id": "PYSEC-2021-108",
+          "summary": "An issue was discovered in urllib3 before 1.26.5. When provided with a URL containing many @ characters in the authority component, the authority regular expression exhibits catastrophic backtracking,",
+          "aliases": [
+            "CVE-2021-33503",
+            "GHSA-q2q7-5pp4-w6pg"
+          ],
+          "cves": [
+            "CVE-2021-33503"
+          ],
+          "severity": [],
+          "references": [
+            "https://github.com/advisories/GHSA-q2q7-5pp4-w6pg",
+            "https://github.com/urllib3/urllib3/commit/2d4a3fee6de2fa45eb82169361918f759269b4ec"
+          ]
+        },
+        {
+          "id": "PYSEC-2023-192",
+          "summary": "urllib3 is a user-friendly HTTP client library for Python. urllib3 doesn't treat the `Cookie` HTTP header special or provide any helpers for managing cookies over HTTP, that is the responsibility of t",
+          "aliases": [
+            "CVE-2023-43804",
+            "GHSA-v845-jxx5-vc9f"
+          ],
+          "cves": [
+            "CVE-2023-43804"
+          ],
+          "severity": [
+            {
+              "type": "CVSS_V3",
+              "score": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N"
+            }
+          ],
+          "references": [
+            "https://github.com/urllib3/urllib3/commit/644124ecd0b6e417c527191f866daa05a5a2056d",
+            "https://github.com/urllib3/urllib3/security/advisories/GHSA-v845-jxx5-vc9f",
+            "https://github.com/urllib3/urllib3/commit/01220354d389cd05474713f8c982d05c9b17aafb",
+            "https://lists.debian.org/debian-lts-announce/2023/10/msg00012.html"
+          ]
+        },
+        {
+          "id": "PYSEC-2023-207",
+          "summary": "urllib3 before 1.24.2 does not remove the authorization HTTP header when following a cross-origin redirect (i.e., a redirect that differs in host, port, or scheme). This can allow for credentials in t",
+          "aliases": [
+            "CVE-2018-25091",
+            "GHSA-gwvm-45gx-3cf8"
+          ],
+          "cves": [
+            "CVE-2018-25091"
+          ],
+          "severity": [
+            {
+              "type": "CVSS_V3",
+              "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+            }
+          ],
+          "references": [
+            "https://github.com/urllib3/urllib3/compare/1.24.1...1.24.2",
+            "https://github.com/urllib3/urllib3/issues/1510",
+            "https://github.com/urllib3/urllib3/commit/adb358f8e06865406d1f05e581a16cbea2136fbc"
+          ]
+        },
+        {
+          "id": "PYSEC-2023-212",
+          "summary": "urllib3 is a user-friendly HTTP client library for Python. urllib3 previously wouldn't remove the HTTP request body when an HTTP redirect response using status 301, 302, or 303 after the request had i",
+          "aliases": [
+            "CVE-2023-45803",
+            "GHSA-g4mx-q9vg-27p4"
+          ],
+          "cves": [
+            "CVE-2023-45803"
+          ],
+          "severity": [
+            {
+              "type": "CVSS_V3",
+              "score": "CVSS:3.1/AV:A/AC:H/PR:H/UI:N/S:U/C:H/I:N/A:N"
+            }
+          ],
+          "references": [
+            "https://github.com/urllib3/urllib3/security/advisories/GHSA-g4mx-q9vg-27p4",
+            "https://www.rfc-editor.org/rfc/rfc9110.html#name-get",
+            "https://github.com/urllib3/urllib3/commit/4e98d57809dacab1cbe625fddeec1a290c478ea9",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/PPDPLM6UUMN55ESPQWJFLLIZY4ZKCNRX/"
+          ]
+        },
+        {
+          "id": "PYSEC-2026-141",
+          "summary": "urllib3 is an HTTP client library for Python. From 1.23 to before 2.7.0, cross-origin redirects followed from the low-level API via ProxyManager.connection_from_url().urlopen(..., assert_same_host=Fal",
+          "aliases": [
+            "CVE-2026-44431",
+            "GHSA-qccp-gfcp-xxvc"
+          ],
+          "cves": [
+            "CVE-2026-44431"
+          ],
+          "severity": [
+            {
+              "type": "CVSS_V3",
+              "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N"
+            }
+          ],
+          "references": [
+            "https://github.com/urllib3/urllib3/security/advisories/GHSA-qccp-gfcp-xxvc"
+          ]
+        }
+      ]
+    },
+    {
+      "package": "certifi",
+      "version": "2024.2.2",
+      "vulnerability_count": 2,
+      "vulnerabilities": [
+        {
+          "id": "GHSA-248v-346w-9cwc",
+          "summary": "Certifi removes GLOBALTRUST root certificate",
+          "aliases": [
+            "CVE-2024-39689",
+            "PYSEC-2024-230"
+          ],
+          "cves": [
+            "CVE-2024-39689"
+          ],
+          "severity": [],
+          "references": [
+            "https://github.com/certifi/python-certifi/security/advisories/GHSA-248v-346w-9cwc",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-39689",
+            "https://github.com/certifi/python-certifi/commit/bd8153872e9c6fc98f4023df9c2deaffea2fa463",
+            "https://github.com/certifi/python-certifi",
+            "https://github.com/pypa/advisory-database/tree/main/vulns/certifi/PYSEC-2024-230.yaml",
+            "https://groups.google.com/a/mozilla.org/g/dev-security-policy/c/XpknYMPO8dI",
+            "https://security.netapp.com/advisory/ntap-20241206-0001"
+          ]
+        },
+        {
+          "id": "PYSEC-2024-230",
+          "summary": "Certifi is a curated collection of Root Certificates for validating the trustworthiness of SSL certificates while verifying the identity of TLS hosts. Certifi starting in 2021.05.30 and prior to 2024.",
+          "aliases": [
+            "CVE-2024-39689",
+            "GHSA-248v-346w-9cwc"
+          ],
+          "cves": [
+            "CVE-2024-39689"
+          ],
+          "severity": [
+            {
+              "type": "CVSS_V3",
+              "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N"
+            }
+          ],
+          "references": [
+            "https://github.com/certifi/python-certifi/security/advisories/GHSA-248v-346w-9cwc",
+            "https://security.netapp.com/advisory/ntap-20241206-0001/",
+            "https://groups.google.com/a/mozilla.org/g/dev-security-policy/c/XpknYMPO8dI",
+            "https://github.com/certifi/python-certifi/commit/bd8153872e9c6fc98f4023df9c2deaffea2fa463"
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": []
+}
