@@ -1,12 +1,12 @@
-# DepsGuard-AI
+# DepsGuard-AI 🛡️🤖
 
-> A lightweight, zero-dependency security automation tool that scans your Python
-> dependencies for known vulnerabilities (CVEs) on every Pull Request.
+An ultra-lightweight, zero-dependency security scanner built for GitHub Actions. It automatically audits Python dependencies against the Google OSV database during Pull Requests and leverages OpenAI models to triage findings, eliminating vulnerability noise for maintainers.
 
-DepsGuard-AI parses your `requirements.txt`, queries the free
-[OSV.dev](https://osv.dev/) vulnerability database for each pinned package, and
-produces a single structured JSON report. It is purpose-built for GitHub Actions
-but runs just as happily on your laptop.
+## Key Features
+* **Zero Runtime Dependencies:** Built entirely using Python's standard library (`urllib`). Safe from supply-chain attacks.
+* **OSV.dev Integration:** Fast data fetching from the open-source vulnerability database.
+* **AI Security Triage:** Cuts through the noise by using LLMs to evaluate whether a CVE actually impacts your specific codebase.
+* **Sticky PR Comments:** Seamlessly upserts security reports directly into Pull Requests without spamming the timeline.
 
 ## Why it matters for open source
 
@@ -14,18 +14,10 @@ Open-source projects rarely have a dedicated security team, yet they pull in
 dozens of transitive dependencies — any of which can ship a critical CVE. Most
 existing scanners require accounts, API tokens, paid tiers, or heavy toolchains.
 
-DepsGuard-AI is different:
-
-- **Zero runtime dependencies.** Pure Python standard library — nothing to
-  `pip install`, nothing to break.
-- **Free data source.** Uses the public OSV.dev API maintained by Google and the
-  OpenSSF, which aggregates GitHub Advisories, PyPA, and many other feeds.
-- **CI-native.** Drops into any repository as a single GitHub Actions workflow
-  and gates Pull Requests automatically.
-- **Resilient.** Network failures, timeouts, and API errors never crash the run;
-  they are captured in the report so the scan degrades gracefully.
-- **AI-ready.** Ships with a clean hook for optional OpenAI-powered triage that
-  ranks CVEs by how critical they really are *for your project*.
+DepsGuard-AI is different: it's a single Python file with no `pip install` step,
+it reads from the free OSV.dev database (maintained by Google and the OpenSSF),
+and it degrades gracefully — network failures, timeouts, and API errors are
+captured in the report instead of crashing your CI.
 
 ## How it works
 
@@ -34,9 +26,11 @@ DepsGuard-AI is different:
 2. **Scan** — `POST` each dependency to `https://api.osv.dev/v1/query`.
 3. **Report** — aggregate all findings into one JSON document with a summary,
    per-package findings, extracted CVE aliases, severity scores, and references.
-4. **(Optional) Analyze** — pass the report to `analyze_report_with_openai()` to
-   have GPT assess real-world criticality and recommend fixes (stubbed by
-   default; enable with an API key).
+4. **AI Triage** *(optional)* — when `OPENAI_API_KEY` is set, the report is sent
+   to `gpt-4o-mini`, which acts as a Senior Security Engineer and returns a tight
+   markdown verdict (`Risk Assessment` + `Action Items`).
+5. **Comment** — in CI, the verdict is upserted as a single sticky Pull Request
+   comment.
 
 ## Usage
 
@@ -46,8 +40,11 @@ DepsGuard-AI is different:
 # Scan the default requirements.txt
 python main.py
 
-# Scan a specific file and save the report
+# Scan a specific file and save the JSON report
 python main.py path/to/requirements.txt --output report.json
+
+# Also save the AI verdict to a text file (requires OPENAI_API_KEY)
+python main.py --output report.json --ai-output ai_output.txt
 
 # Fail (non-zero exit) if any vulnerability is found — great for CI gates
 python main.py --fail-on-vuln
@@ -56,27 +53,29 @@ python main.py --fail-on-vuln
 python main.py --timeout 30
 ```
 
-Requires Python 3.9+ and outbound HTTPS access to `api.osv.dev`.
+Requires Python 3.9+ and outbound HTTPS access to `api.osv.dev` (and
+`api.openai.com` when AI triage is enabled).
 
 ### Run in GitHub Actions
 
 The workflow in [`.github/workflows/deps-guard.yml`](.github/workflows/deps-guard.yml)
 runs automatically on every Pull Request that changes `requirements.txt`,
-prints the report to the build logs, uploads it as an artifact, and fails the
-check when vulnerabilities are detected.
-
-You can also trigger it manually from the **Actions** tab via
+prints the report to the build logs, uploads it as an artifact, posts the AI
+triage as a sticky PR comment, and fails the check when vulnerabilities are
+detected. You can also trigger it manually from the **Actions** tab via
 `workflow_dispatch`.
 
-### Optional: enable AI triage
+### Enable AI triage
 
-1. `pip install openai`
-2. Add an `OPENAI_API_KEY` secret to your repository (or export it locally).
-3. Uncomment the integration block inside `analyze_report_with_openai()` in
-   `main.py`.
+AI triage is fully implemented and uses only `urllib` — no extra packages.
+To turn it on:
 
-When enabled, DepsGuard-AI asks the model to evaluate each CVE's relevance to
-your codebase, judge likely exploitability, and rank remediations by urgency.
+1. Add an `OPENAI_API_KEY` secret to your repository (or export it locally).
+2. That's it. When the key is present, DepsGuard-AI calls the OpenAI API and
+   prints/saves the verdict; when it's absent, the step is silently skipped.
+
+When enabled, the model evaluates each CVE's relevance to your codebase, judges
+likely exploitability, and returns a prioritized remediation checklist.
 
 ## Example report
 
