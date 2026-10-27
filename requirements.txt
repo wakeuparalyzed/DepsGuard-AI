@@ -1,4 +1,4 @@
 # Dependencies checked by DepsGuard-AI
 requests==2.33.0
-urllib3==2.7.0
-certifi==2025.10.5
+urllib3==2.8.0
+certifi==2026.10.23
