@@ -5,10 +5,6 @@
 # so you can see the scanner produce findings out of the box.
 
 # Known-vulnerable on purpose (CVE-2018-18074, etc.) - used for testing.
-requests==2.20.0
-
-# Another historically vulnerable pin to demonstrate multiple findings.
-urllib3==1.24.1
-
-# A safe, modern pin (typically reports no vulnerabilities).
-certifi==2024.2.2
+requests==2.33.0
+urllib3==2.7.0
+certifi==2025.10.5
